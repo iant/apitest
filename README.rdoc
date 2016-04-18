@@ -1,0 +1,68 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+
+
+
+https://gitlab.com/iant/apitest/tree/master
+
+This uses active_model_serializers for JSON generation (will be included in Rails 5)
+https://github.com/rails-api/active_model_serializers
+
+From a terminal command line:
+
+git clone git@gitlab.com:iant/apitest.git
+cd apitest
+rake db:migrate
+rake db:seed
+rails s -p 3000
+
+
+Point browser at http://localhost:3000/posts
+
+The API is accessible from 
+http://localhost:3000/api/v1/posts
+
+You can interact with the API from a terminal command line (where '1' can be replaced by the id):
+
+Get all Posts (posts#index)
+curl -i -H "Content-Type: application/json" -X GET http://localhost:3000/api/v1/posts
+
+View a particular Post (posts#show)
+curl -i -H "Content-Type: application/json" -X GET http://localhost:3000/api/v1/posts/1
+
+Create a new Post (posts#create)
+curl -i -H "Content-Type: application/json" -X POST -d '{"post":{"title":"xyz","body":"xyz"}}' http://localhost:3000/api/v1/posts
+
+Update a Post (posts#update)
+curl -i -H "Content-Type: application/json" -X PATCH -d '{"post":{"id":"3","title":"xyz","body":"xyz"}}' http://localhost:3000/api/v1/posts/1
+
+Delete a Post (posts#destroy)
+curl -i -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/v1/posts/1
