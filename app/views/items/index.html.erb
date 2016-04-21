@@ -18,11 +18,11 @@
       <tr>
         <td><%= item.title %></td>
         <td><%= item.body %></td>
-        <td><%= item.description.body %></td>
+        <td><%= item.description.body rescue nil %></td>
         <td>
         <% item.comments.each do |c| %>
           <%= c.body %><br />
-        <% end %>
+        <% end rescue nil %>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
