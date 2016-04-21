@@ -38,7 +38,7 @@ https://github.com/rails-api/active_model_serializers
 
 From a terminal command line:
 
-git clone git@gitlab.com:iant/apitest.git
+git clone https://github.com/iant/apitest.git
 cd apitest
 rake db:migrate
 rake db:seed
