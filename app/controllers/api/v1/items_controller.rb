@@ -15,7 +15,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   end
 
   # item /items e.g.
-  # curl -H "Content-Type: application/json" -X POST item -d '{"item":{"title":"xyz","body":"xyz", "description_attributes":{"body":"description body text"}, "comments_attributes":[{"body":"comments body text"}]}}' http://localhost:3006/api/v1/items
+  # curl -H "Content-Type: application/json" -X POST item -d '{"item":{"title":"xyz","body":"xyz", "description_attributes":{"body":"description body text"}, "comments_attributes":[{"body":"comments body text 1"}, {"body":"comments body text 2"}]}}' http://localhost:3006/api/v1/items
   def create
     puts create_params
     @item = Item.new(create_params)
@@ -26,7 +26,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
   end
 
   # PATCH/PUT /items/1
-  # curl -H "Content-Type: application/json" -X PATCH -d '{"item":{"id":"3","title":"xyz","body":"xyz"}}' http://localhost:3000/api/v1/items/1
+  # curl -H "Content-Type: application/json" -X PATCH -d '{"item":{"id":"1","title":"xyz","body":"xyz"}}' http://localhost:3000/api/v1/items/1
+  # curl -H "Content-Type: application/json" -X PATCH -d '{"item":{"id":"1","title":"xyz","body":"xyz", "description_attributes":{"body":"some more text"}, "comments_attributes":[{"body":"some comment text"}]  }}' http://localhost:3006/api/v1/items/1
   def update
     @item = Item.find(params[:id])
     if !@item.update_attributes(update_params)
